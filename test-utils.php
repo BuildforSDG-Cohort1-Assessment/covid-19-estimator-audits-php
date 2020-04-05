@@ -70,7 +70,7 @@ function mockEstimatorFor($periodType)
   $response_object = null;
   try {
     $response = $client->request('GET', 'gen/covid-19-scenario/days');
-    $response_object = json_decode($response);
+    $response_object = json_decode($response->getBody());
   } catch (GuzzleHttp\Exception\RequestException $e) {
     throw new Exception($e);
   }

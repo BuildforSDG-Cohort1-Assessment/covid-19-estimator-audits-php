@@ -32,17 +32,17 @@ class challengeOneTest extends TestCase
 
     $result = covid19ImpactEstimator($data);
 
-    foreach ($GLOBALS['fields'][$challenge] as $key) {
-      $this->assertArrayHasKey($key, $result['impact']);
-      $this->assertArrayHasKey($key, $result['severeImpact']);
-    }
-    
     $this->assertIsArray($result);
     $this->assertNotEmpty($result);
     $this->assertArrayHasKey('impact', $result);
     $this->assertArrayHasKey('severeImpact', $result);
     $this->assertIsArray($result['impact']);
     $this->assertIsArray($result['severeImpact']);
+
+    foreach ($GLOBALS['fields'][$challenge] as $key) {
+      $this->assertArrayHasKey($key, $result['impact']);
+      $this->assertArrayHasKey($key, $result['severeImpact']);
+    }
     
     $values = valueOnFields($result, $estimate, $challenge);
     foreach ($values as $estimation) {
