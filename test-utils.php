@@ -69,7 +69,7 @@ function mockEstimatorFor($periodType)
   $client = new GuzzleHttp\Client(['base_uri' => 'https://us-central1-buildforsdg.cloudfunctions.net/api/']);
   $response_object = null;
   try {
-    $response = $client->request('POST', 'gen/covid-19-scenario/' . strtolower($periodType));
+    $response = $client->request('GET', 'gen/covid-19-scenario/' . strtolower($periodType));
     $response_object = json_decode($response->getBody());
     // $response_object = json_decode($data);
   } catch (GuzzleHttp\Exception\RequestException $e) {
