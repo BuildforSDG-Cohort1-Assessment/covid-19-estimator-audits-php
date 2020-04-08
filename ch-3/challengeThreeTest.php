@@ -46,9 +46,10 @@ class challengeThreeTest extends TestCase
 
     $values = valueOnFields($result, $estimate, $challenge);
     foreach ($values as $estimation) {
-      $produced = $estimation[0];
+      $produced = $estimation[2];
       $expected = $estimation[1];
       $this->assertEquals($produced, $expected);
     }
   }
 }
+
