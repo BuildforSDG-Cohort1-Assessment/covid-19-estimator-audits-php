@@ -43,12 +43,13 @@ class challengeTwoTest extends TestCase
       $this->assertArrayHasKey($key, $result['impact']);
       $this->assertArrayHasKey($key, $result['severeImpact']);
     }
-    
+
     $values = valueOnFields($result, $estimate, $challenge);
     foreach ($values as $estimation) {
-      $produced = $estimation[0];
+      $produced = $estimation[2];
       $expected = $estimation[1];
-      $this->assertEquals($produced, $expected); 
+      $this->assertEquals($produced, $expected);
     }
   }
 }
+
